@@ -7,6 +7,20 @@ local ChatInfo =
 	Functions =
 	{
 		{
+			Name = "CanReportPlayer",
+			Type = "Function",
+
+			Arguments =
+			{
+				{ Name = "playerLocation", Type = "table", Mixin = "PlayerLocationMixin", Nilable = false },
+			},
+
+			Returns =
+			{
+				{ Name = "canReport", Type = "bool", Nilable = false },
+			},
+		},
+		{
 			Name = "GetChannelRosterInfo",
 			Type = "Function",
 
@@ -71,20 +85,6 @@ local ChatInfo =
 			},
 		},
 		{
-			Name = "IsValidChatLine",
-			Type = "Function",
-
-			Arguments =
-			{
-				{ Name = "chatLine", Type = "number", Nilable = true },
-			},
-
-			Returns =
-			{
-				{ Name = "isValid", Type = "bool", Nilable = false },
-			},
-		},
-		{
 			Name = "RegisterAddonMessagePrefix",
 			Type = "Function",
 			Documentation = { "Registers interest in addon messages with this prefix, cannot be an empty string." },
@@ -100,23 +100,18 @@ local ChatInfo =
 			},
 		},
 		{
-			Name = "ReplaceIconAndGroupExpressions",
+			Name = "ReportPlayer",
 			Type = "Function",
 
 			Arguments =
 			{
-				{ Name = "input", Type = "string", Nilable = false },
-				{ Name = "noIconReplacement", Type = "bool", Nilable = true },
-				{ Name = "noGroupReplacement", Type = "bool", Nilable = true },
-			},
-
-			Returns =
-			{
-				{ Name = "output", Type = "string", Nilable = false },
+				{ Name = "complaintType", Type = "string", Nilable = false },
+				{ Name = "playerLocation", Type = "table", Mixin = "PlayerLocationMixin", Nilable = true },
+				{ Name = "comment", Type = "string", Nilable = true },
 			},
 		},
 		{
-			Name = "ResetDefaultZoneChannels",
+			Name = "ReportServerLag",
 			Type = "Function",
 		},
 		{
@@ -153,16 +148,6 @@ local ChatInfo =
 			Returns =
 			{
 				{ Name = "success", Type = "bool", Nilable = false },
-			},
-		},
-		{
-			Name = "SwapChatChannelsByChannelIndex",
-			Type = "Function",
-
-			Arguments =
-			{
-				{ Name = "firstChannelIndex", Type = "number", Nilable = false },
-				{ Name = "secondChannelIndex", Type = "number", Nilable = false },
 			},
 		},
 	},
